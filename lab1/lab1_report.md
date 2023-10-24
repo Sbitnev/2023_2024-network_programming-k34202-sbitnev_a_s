@@ -30,4 +30,23 @@
 Подключение установлено.
 ![](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab1/pics/4.PNG "Успешное подключение")
 
-### 2. Создание виртуальной машины Ubuntu в Яндекс.Облаке.
+### 2. Создание виртуальной машины Ubuntu в Яндекс.Облаке и подключение к ней.
+Создаем новую виртуальную машину с данными параметрами:
+![](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab1/pics/5.png "")
+![](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab1/pics/6.png "")
+![](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab1/pics/7.png "")
+
+Для создания SSH ключа используем команду:
+<code>ssh-keygen -t ed25519</code>
+
+Для копирования публичного ключа:
+<code>cat ~/.ssh/ed25519.pub</code>
+
+Машина создана:
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/a40131d8-f698-4dcf-9f7e-035a836e8e2c)
+
+Для подключения используем команду:
+<code>ssh -i /home/asd/.ssh/id_ed25519 admin@51.250.87.203</code>
+
+### 3. Настройка VPN сервера.
+
