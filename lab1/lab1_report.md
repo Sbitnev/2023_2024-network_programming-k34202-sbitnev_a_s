@@ -47,6 +47,8 @@
 
 Для подключения используем команду:
 <code>ssh -i /home/asd/.ssh/id_ed25519 admin@51.250.87.203</code>
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/b3b91b32-324d-49a1-94bd-c756cbd81df6)
+
 
 ### 3. Настройка VPN сервера.
 
