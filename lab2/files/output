@@ -1,0 +1,606 @@
+PLAY [CHR setting] ************************************************************************************************************************************************************
+
+
+
+TASK [Gathering Facts] ********************************************************************************************************************************************************
+
+ok: [chr1]
+
+ok: [chr2]
+
+
+
+TASK [Create users] ***********************************************************************************************************************************************************
+
+changed: [chr2]
+
+changed: [chr1]
+
+
+
+TASK [Create NTP client] ******************************************************************************************************************************************************
+
+changed: [chr1]
+
+changed: [chr2]
+
+
+
+TASK [OSPF with router ID] ****************************************************************************************************************************************************
+
+changed: [chr1]
+
+changed: [chr2]
+
+
+
+TASK [Get facts] **************************************************************************************************************************************************************
+
+ok: [chr1]
+
+ok: [chr2]
+
+
+
+TASK [Print output] ***********************************************************************************************************************************************************
+
+ok: [chr1] => {
+
+    "output_ospf": {
+
+        "ansible_facts": {
+
+            "ansible_net_all_ipv4_addresses": [
+
+                "192.168.3.119",
+
+                "172.27.224.4",
+
+                "172.16.0.1"
+
+            ],
+
+            "ansible_net_all_ipv6_addresses": [
+
+                "fe80::a00:27ff:fefb:11fb",
+
+                "fe80::b0e:fa7:15da:88b4",
+
+                "fe80::7874:41ff:fed2:8348"
+
+            ],
+
+            "ansible_net_arch": "x86_64",
+
+            "ansible_net_cpu_load": "2%",
+
+            "ansible_net_gather_subset": [
+
+                "interfaces",
+
+                "default"
+
+            ],
+
+            "ansible_net_hostname": "MikroTik",
+
+            "ansible_net_interfaces": {
+
+                "ether1": {
+
+                    "actual-mtu": "1500",
+
+                    "default-name": "ether1",
+
+                    "id": "1",
+
+                    "ifindex": "6",
+
+                    "ifname": "eth0",
+
+                    "ipv4": [
+
+                        {
+
+                            "address": "192.168.3.119",
+
+                            "subnet": "24"
+
+                        }
+
+                    ],
+
+                    "ipv6": [
+
+                        {
+
+                            "address": "fe80::a00:27ff:fefb:11fb",
+
+                            "subnet": "64"
+
+                        }
+
+                    ],
+
+                    "last-link-up-time": "2023-11-19",
+
+                    "link-downs": "0",
+
+                    "mac-address": "08:00:27:FB:11:FB",
+
+                    "mtu": "1500",
+
+                    "name": "ether1",
+
+                    "type": "ether"
+
+                },
+
+                "loopback": {
+
+                    "actual-mtu": "1500",
+
+                    "id": "4",
+
+                    "ifindex": "17",
+
+                    "ifname": "br0",
+
+                    "ipv4": [
+
+                        {
+
+                            "address": "172.16.0.1",
+
+                            "subnet": "32"
+
+                        }
+
+                    ],
+
+                    "ipv6": [
+
+                        {
+
+                            "address": "fe80::7874:41ff:fed2:8348",
+
+                            "subnet": "64"
+
+                        }
+
+                    ],
+
+                    "l2mtu": "65535",
+
+                    "last-link-up-time": "2023-11-19",
+
+                    "link-downs": "0",
+
+                    "mac-address": "7A:74:41:D2:83:48",
+
+                    "mtu": "auto",
+
+                    "name": "loopback",
+
+                    "type": "bridge"
+
+                },
+
+                "ovpn-out1": {
+
+                    "actual-mtu": "1500",
+
+                    "id": "2",
+
+                    "ifindex": "16",
+
+                    "ifname": "ppp-o2",
+
+                    "ipv4": [
+
+                        {
+
+                            "address": "172.27.224.4",
+
+                            "subnet": "20"
+
+                        }
+
+                    ],
+
+                    "ipv6": [
+
+                        {
+
+                            "address": "fe80::b0e:fa7:15da:88b4",
+
+                            "subnet": "64"
+
+                        }
+
+                    ],
+
+                    "last-link-down-time": "2023-11-19",
+
+                    "last-link-up-time": "2023-11-19",
+
+                    "link-downs": "1",
+
+                    "mac-address": "02:3C:3B:DC:E1:4B",
+
+                    "mtu": "1500",
+
+                    "name": "ovpn-out1",
+
+                    "type": "ovpn-out"
+
+                }
+
+            },
+
+            "ansible_net_model": null,
+
+            "ansible_net_neighbors": [
+
+                {
+
+                    "age": "10m12s",
+
+                    "discovered-by": "lldp",
+
+                    "interface": "ether1",
+
+                    "mac-address": "70:85:C2:4E:14:47",
+
+                    "system-caps": "other",
+
+                    "system-caps-enabled": "other",
+
+                    "unpack": "none"
+
+                },
+
+                {
+
+                    "address": "192.168.3.120",
+
+                    "address4": "192.168.3.120",
+
+                    "address6": "fe80::a00:27ff:fe3d:7c4c",
+
+                    "age": "18s",
+
+                    "board": "CHR",
+
+                    "discovered-by": "cdp",
+
+                    "identity": "MikroTik",
+
+                    "interface": "ether1",
+
+                    "interface-name": "ether1",
+
+                    "ipv6": "yes",
+
+                    "mac-address": "08:00:27:3D:7C:4C",
+
+                    "platform": "MikroTik",
+
+                    "software-id": "UZovqzy4",
+
+                    "system-caps": "bridge",
+
+                    "system-caps-enabled": "router",
+
+                    "system-description": "MikroTik",
+
+                    "unpack": "none",
+
+                    "uptime": "41m3s",
+
+                    "version": "7.11.2"
+
+                }
+
+            ],
+
+            "ansible_net_serialnum": null,
+
+            "ansible_net_uptime": "41m26s",
+
+            "ansible_net_version": "7.11.2 (stable)"
+
+        },
+
+        "changed": false,
+
+        "failed": false
+
+    }
+
+}
+
+ok: [chr2] => {
+
+    "output_ospf": {
+
+        "ansible_facts": {
+
+            "ansible_net_all_ipv4_addresses": [
+
+                "192.168.3.120",
+
+                "172.27.224.5",
+
+                "172.16.0.1"
+
+            ],
+
+            "ansible_net_all_ipv6_addresses": [
+
+                "fe80::a00:27ff:fe3d:7c4c",
+
+                "fe80::c1b5:f96e:b57e:664d",
+
+                "fe80::ec63:ccff:fe13:14a8"
+
+            ],
+
+            "ansible_net_arch": "x86_64",
+
+            "ansible_net_cpu_load": "0%",
+
+            "ansible_net_gather_subset": [
+
+                "default",
+
+                "interfaces"
+
+            ],
+
+            "ansible_net_hostname": "MikroTik",
+
+            "ansible_net_interfaces": {
+
+                "ether1": {
+
+                    "actual-mtu": "1500",
+
+                    "default-name": "ether1",
+
+                    "id": "1",
+
+                    "ifindex": "6",
+
+                    "ifname": "eth0",
+
+                    "ipv4": [
+
+                        {
+
+                            "address": "192.168.3.120",
+
+                            "subnet": "24"
+
+                        }
+
+                    ],
+
+                    "ipv6": [
+
+                        {
+
+                            "address": "fe80::a00:27ff:fe3d:7c4c",
+
+                            "subnet": "64"
+
+                        }
+
+                    ],
+
+                    "last-link-up-time": "2023-11-19",
+
+                    "link-downs": "0",
+
+                    "mac-address": "08:00:27:3D:7C:4C",
+
+                    "mtu": "1500",
+
+                    "name": "ether1",
+
+                    "type": "ether"
+
+                },
+
+                "loopback": {
+
+                    "actual-mtu": "1500",
+
+                    "id": "3",
+
+                    "ifindex": "18",
+
+                    "ifname": "br0",
+
+                    "ipv4": [
+
+                        {
+
+                            "address": "172.16.0.1",
+
+                            "subnet": "32"
+
+                        }
+
+                    ],
+
+                    "ipv6": [
+
+                        {
+
+                            "address": "fe80::ec63:ccff:fe13:14a8",
+
+                            "subnet": "64"
+
+                        }
+
+                    ],
+
+                    "l2mtu": "65535",
+
+                    "last-link-up-time": "2023-11-19",
+
+                    "link-downs": "0",
+
+                    "mac-address": "EE:63:CC:13:14:A8",
+
+                    "mtu": "auto",
+
+                    "name": "loopback",
+
+                    "type": "bridge"
+
+                },
+
+                "ovpn-out1": {
+
+                    "actual-mtu": "1500",
+
+                    "id": "2",
+
+                    "ifindex": "17",
+
+                    "ifname": "ppp-o2",
+
+                    "ipv4": [
+
+                        {
+
+                            "address": "172.27.224.5",
+
+                            "subnet": "20"
+
+                        }
+
+                    ],
+
+                    "ipv6": [
+
+                        {
+
+                            "address": "fe80::c1b5:f96e:b57e:664d",
+
+                            "subnet": "64"
+
+                        }
+
+                    ],
+
+                    "last-link-down-time": "2023-11-19",
+
+                    "last-link-up-time": "2023-11-19",
+
+                    "link-downs": "1",
+
+                    "mac-address": "02:6E:04:8E:2B:C2",
+
+                    "mtu": "1500",
+
+                    "name": "ovpn-out1",
+
+                    "type": "ovpn-out"
+
+                }
+
+            },
+
+            "ansible_net_model": null,
+
+            "ansible_net_neighbors": [
+
+                {
+
+                    "age": "10m12s",
+
+                    "discovered-by": "lldp",
+
+                    "interface": "ether1",
+
+                    "mac-address": "70:85:C2:4E:14:47",
+
+                    "system-caps": "other",
+
+                    "system-caps-enabled": "other",
+
+                    "unpack": "none"
+
+                },
+
+                {
+
+                    "address": "192.168.3.119",
+
+                    "address4": "192.168.3.119",
+
+                    "address6": "fe80::a00:27ff:fefb:11fb",
+
+                    "age": "22s",
+
+                    "board": "CHR",
+
+                    "discovered-by": "cdp",
+
+                    "identity": "MikroTik",
+
+                    "interface": "ether1",
+
+                    "interface-name": "ether1",
+
+                    "ipv6": "yes",
+
+                    "mac-address": "08:00:27:FB:11:FB",
+
+                    "platform": "MikroTik",
+
+                    "software-id": "wPv7Y7q",
+
+                    "system-caps": "bridge",
+
+                    "system-caps-enabled": "bridge",
+
+                    "system-description": "MikroTik",
+
+                    "unpack": "none",
+
+                    "uptime": "41m4s",
+
+                    "version": "7.11.2"
+
+                }
+
+            ],
+
+            "ansible_net_serialnum": null,
+
+            "ansible_net_uptime": "41m21s",
+
+            "ansible_net_version": "7.11.2 (stable)"
+
+        },
+
+        "changed": false,
+
+        "failed": false
+
+    }
+
+}
+
+
+
+PLAY RECAP ********************************************************************************************************************************************************************
+
+chr1                       : ok=6    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+chr2                       : ok=6    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
