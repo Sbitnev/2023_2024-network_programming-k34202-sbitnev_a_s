@@ -130,7 +130,7 @@ ansible-playbook -i hosts.ini ansible-playbook.yml
 
 ### 5. Конфигурация роутеров.
 [CHR1](lab2/files/output.txt):
-'''
+```
 # 2023-11-19 16:36:52 by RouterOS 7.11.2
 # software id = 
 #
@@ -172,10 +172,10 @@ set show-at-login=no
 set enabled=yes
 /system ntp client servers
 add address=0.ru.pool.ntp.org
-'''
+```
 
 [CHR2](lab2/files/output.txt):
-'''
+```
 # 2023-11-19 16:36:57 by RouterOS 7.11.2
 # software id = 
 #
@@ -209,7 +209,7 @@ set show-at-login=no
 set enabled=yes
 /system ntp client servers
 add address=0.ru.pool.ntp.org
-'''
+```
 
 ## **Вывод:** 
 В результате выполнения работы с помощью Ansible были настроены несколько сетевых устройств и собрана информация о них. Правильно собрать файл Inventory.
