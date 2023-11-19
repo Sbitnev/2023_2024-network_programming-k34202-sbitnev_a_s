@@ -34,7 +34,8 @@
 
 ### 2. Схема сети.
 
-![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/7fcd816a-2bf6-4865-94db-534c4869f3ed)
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/ac4f4bdf-4450-402d-a16a-1bcdc07b196d)
+
 
 ### 3. Настройка CHR при помощи Ansible.
 
