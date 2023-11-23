@@ -4,7 +4,7 @@
 ##### Year: 2023/2024
 ##### Group: K34202
 ##### Author: Sbitnev Aleksandr
-##### Lab: Lab1
+##### Lab: Lab2
 ##### Date of create: 19.11.2023
 ##### Date of finished: 21.11.2023
 
