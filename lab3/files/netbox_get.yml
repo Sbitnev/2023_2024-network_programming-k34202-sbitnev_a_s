@@ -1,0 +1,12 @@
+plugin: netbox.netbox.nb_inventory
+
+api_endpoint: http://172.27.224.5:8000
+
+token: b28bd210be2f2ee5c35f0fbdc377630efb775464
+
+validate_certs: True
+
+config_context: False
+
+interfaces: True
+
