@@ -1,0 +1,460 @@
+ll:
+
+  children:
+
+    ungrouped:
+
+      hosts:
+
+        CHR1:
+
+          ansible_host: 172.27.224.4
+
+          custom_fields: {}
+
+          device_roles:
+
+          - router
+
+          device_types:
+
+          - router
+
+          interfaces:
+
+          - _occupied: false
+
+            bridge: null
+
+            cable: null
+
+            cable_end: ''
+
+            connected_endpoints: null
+
+            connected_endpoints_reachable: null
+
+            connected_endpoints_type: null
+
+            count_fhrp_groups: 0
+
+            count_ipaddresses: 1
+
+            created: '2023-12-03T22:25:39.980514Z'
+
+            custom_fields: {}
+
+            description: ''
+
+            device:
+
+              display: CHR1
+
+              id: 1
+
+              name: CHR1
+
+              url: http://172.27.224.5:8000/api/dcim/devices/1/
+
+            display: openvpn
+
+            duplex: null
+
+            enabled: true
+
+            id: 1
+
+            ip_addresses:
+
+            - address: 172.27.224.4/20
+
+              comments: ''
+
+              created: '2023-12-03T21:40:40.952061Z'
+
+              custom_fields: {}
+
+              description: ''
+
+              display: 172.27.224.4/20
+
+              dns_name: ''
+
+              family:
+
+                label: IPv4
+
+                value: 4
+
+              id: 2
+
+              last_updated: '2023-12-03T22:31:43.562287Z'
+
+              nat_inside:
+
+                address: 172.27.224.4/20
+
+                display: 172.27.224.4/20
+
+                family: 4
+
+                id: 2
+
+                url: http://172.27.224.5:8000/api/ipam/ip-addresses/2/
+
+              nat_outside:
+
+              - address: 172.27.224.4/20
+
+                display: 172.27.224.4/20
+
+                family: 4
+
+                id: 2
+
+                url: http://172.27.224.5:8000/api/ipam/ip-addresses/2/
+
+              role: null
+
+              status:
+
+                label: Active
+
+                value: active
+
+              tags: []
+
+              tenant: null
+
+              url: http://172.27.224.5:8000/api/ipam/ip-addresses/2/
+
+              vrf: null
+
+            l2vpn_termination: null
+
+            label: ''
+
+            lag: null
+
+            last_updated: '2023-12-03T22:25:39.980552Z'
+
+            link_peers: []
+
+            link_peers_type: null
+
+            mac_address: null
+
+            mark_connected: false
+
+            mgmt_only: false
+
+            mode: null
+
+            module: null
+
+            mtu: null
+
+            name: openvpn
+
+            parent: null
+
+            poe_mode: null
+
+            poe_type: null
+
+            rf_channel: null
+
+            rf_channel_frequency: null
+
+            rf_channel_width: null
+
+            rf_role: null
+
+            speed: null
+
+            tagged_vlans: []
+
+            tags: []
+
+            tx_power: null
+
+            type:
+
+              label: Virtual
+
+              value: virtual
+
+            untagged_vlan: null
+
+            url: http://172.27.224.5:8000/api/dcim/interfaces/1/
+
+            vdcs: []
+
+            vrf: null
+
+            wireless_lans: []
+
+            wireless_link: null
+
+            wwn: null
+
+          is_virtual: false
+
+          local_context_data:
+
+          - null
+
+          locations: []
+
+          manufacturers:
+
+          - testmanufacturer
+
+          primary_ip4: 172.27.224.4
+
+          regions: []
+
+          serial: ''
+
+          services: []
+
+          site_groups: []
+
+          sites:
+
+          - testsite
+
+          status:
+
+            label: Active
+
+            value: active
+
+          tags: []
+
+        CHR2:
+
+          ansible_host: 172.27.224.3
+
+          custom_fields: {}
+
+          device_roles:
+
+          - router
+
+          device_types:
+
+          - router
+
+          interfaces:
+
+          - _occupied: false
+
+            bridge: null
+
+            cable: null
+
+            cable_end: ''
+
+            connected_endpoints: null
+
+            connected_endpoints_reachable: null
+
+            connected_endpoints_type: null
+
+            count_fhrp_groups: 0
+
+            count_ipaddresses: 1
+
+            created: '2023-12-03T22:30:24.333980Z'
+
+            custom_fields: {}
+
+            description: ''
+
+            device:
+
+              display: CHR2
+
+              id: 2
+
+              name: CHR2
+
+              url: http://172.27.224.5:8000/api/dcim/devices/2/
+
+            display: openvpn
+
+            duplex: null
+
+            enabled: true
+
+            id: 2
+
+            ip_addresses:
+
+            - address: 172.27.224.3/20
+
+              comments: ''
+
+              created: '2023-12-03T21:40:25.714542Z'
+
+              custom_fields: {}
+
+              description: ''
+
+              display: 172.27.224.3/20
+
+              dns_name: ''
+
+              family:
+
+                label: IPv4
+
+                value: 4
+
+              id: 1
+
+              last_updated: '2023-12-03T22:31:30.104599Z'
+
+              nat_inside:
+
+                address: 172.27.224.3/20
+
+                display: 172.27.224.3/20
+
+                family: 4
+
+                id: 1
+
+                url: http://172.27.224.5:8000/api/ipam/ip-addresses/1/
+
+              nat_outside:
+
+              - address: 172.27.224.3/20
+
+                display: 172.27.224.3/20
+
+                family: 4
+
+                id: 1
+
+                url: http://172.27.224.5:8000/api/ipam/ip-addresses/1/
+
+              role: null
+
+              status:
+
+                label: Active
+
+                value: active
+
+              tags: []
+
+              tenant: null
+
+              url: http://172.27.224.5:8000/api/ipam/ip-addresses/1/
+
+              vrf: null
+
+            l2vpn_termination: null
+
+            label: ''
+
+            lag: null
+
+            last_updated: '2023-12-03T22:30:24.333999Z'
+
+            link_peers: []
+
+            link_peers_type: null
+
+            mac_address: null
+
+            mark_connected: false
+
+            mgmt_only: false
+
+            mode: null
+
+            module: null
+
+            mtu: null
+
+            name: openvpn
+
+            parent: null
+
+            poe_mode: null
+
+            poe_type: null
+
+            rf_channel: null
+
+            rf_channel_frequency: null
+
+            rf_channel_width: null
+
+            rf_role: null
+
+            speed: null
+
+            tagged_vlans: []
+
+            tags: []
+
+            tx_power: null
+
+            type:
+
+              label: Virtual
+
+              value: virtual
+
+            untagged_vlan: null
+
+            url: http://172.27.224.5:8000/api/dcim/interfaces/2/
+
+            vdcs: []
+
+            vrf: null
+
+            wireless_lans: []
+
+            wireless_link: null
+
+            wwn: null
+
+          is_virtual: false
+
+          local_context_data:
+
+          - null
+
+          locations: []
+
+          manufacturers:
+
+          - testmanufacturer
+
+          primary_ip4: 172.27.224.3
+
+          regions: []
+
+          serial: ''
+
+          services: []
+
+          site_groups: []
+
+          sites:
+
+          - testsite
+
+          status:
+
+            label: Active
+
+            value: active
+
+          tags: []
+
