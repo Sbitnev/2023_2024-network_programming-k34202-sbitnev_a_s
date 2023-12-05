@@ -103,7 +103,7 @@ cd /opt/netbox/netbox/netbox/
 sudo cp configuration_example.py configuration.py
 ```
 
-Отредактируем файл [configuration.py](lab3/files/configuration.py). Изменим следующие параметры:
+Отредактируем файл [configuration.py](files/configuration.py). Изменим следующие параметры:
 ```
 ALLOWED_HOSTS = ['*']
 
@@ -171,7 +171,7 @@ python3 manage.py runserver 0.0.0.0:8000 --insecure
 ansible-galaxy collection install netbox.netbox
 ```
 
-Создадим файл [netbox_conf_galaxy.yml](lab3/files/netbox_conf_galaxy.yml):
+Создадим файл [netbox_conf_galaxy.yml](files/netbox_conf_galaxy.yml):
 ```
 plugin: netbox.netbox.nb_inventory
 api_endpoint: http://127.0.0.1:8000
@@ -188,11 +188,11 @@ interfaces: True
 ```
 ansible-inventory -v --list -y -i netbox_conf_galaxy.yml > netbox_inventory.yml
 ```
-В [файле](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab3/files/netbox_inventory%20copy.yml) теперь находится информация об устройствах в YAML-формате. После некоторых изменений мы можем использовать данный файл в качестве инвентарного.
+В [файле](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/files/netbox_inventory%20copy.yml) теперь находится информация об устройствах в YAML-формате. После некоторых изменений мы можем использовать данный файл в качестве инвентарного.
 
 
 ### 4. Сценарий, при котором на основе данных из Netbox можно настроить 2 CHR, изменить имя устройства, добавить IP адрес на устройство.
-Для начара отредактируем [inventory-файл](lab3/files/inventory/netbox_inventory.yml). Перенесём переменные для подключения к роутерам:
+Для начара отредактируем [inventory-файл](files/inventory/netbox_inventory.yml). Перенесём переменные для подключения к роутерам:
 ```
   vars:
     ansible_connection: ansible.netcommon.network_cli
@@ -201,7 +201,7 @@ ansible-inventory -v --list -y -i netbox_conf_galaxy.yml > netbox_inventory.yml
     ansible_ssh_pass: 12345
 ```
 
-Напишем [playbook](lab3/files/ansible-playbook.yml) для изменения имени устройства и добавления IP:
+Напишем [playbook](files/ansible-playbook.yml) для изменения имени устройства и добавления IP:
 ```
 - name: Setup Routers
   hosts: ungrouped
@@ -255,7 +255,7 @@ Ip и имена изменились:
           serial: "{{ license.stdout_lines[0][0].split()[1] }}"
 ```
 
-Выплним [сценарий](lab3/files/serial_number-playbook.yml):
+Выплним [сценарий](files/serial_number-playbook.yml):
 ```
 ansible-playbook -i inventory serial_number-playbook.yml
 ```
@@ -267,11 +267,11 @@ ansible-playbook -i inventory serial_number-playbook.yml
 
 
 ## **Результаты лабораторной работы:**
-[Файл данных из Netbox.](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab3/files/netbox_inventory%20copy.yml)
+[Файл данных из Netbox.](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/files/netbox_inventory%20copy.yml)
 
 2 файла сценариев:
-1. [Playbook_ip](lab3/files/ansible-playbook.yml) + [inventory-файл](lab3/files/inventory/netbox_inventory.yml)
-2. [Playbook_serial_number](lab3/files/serial_number-playbook.yml)
+1. [Playbook_ip](files/ansible-playbook.yml) + [inventory-файл](files/inventory/netbox_inventory.yml)
+2. [Playbook_serial_number](files/serial_number-playbook.yml)
 
 Схема связи.
 ![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/dd5ab4ce-e4fa-4e8c-8964-53e4c85d193b)
