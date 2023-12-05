@@ -188,7 +188,7 @@ interfaces: True
 ```
 ansible-inventory -v --list -y -i netbox_conf_galaxy.yml > netbox_inventory.yml
 ```
-В [файле](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/files/netbox_inventory%20copy.yml) теперь находится информация об устройствах в YAML-формате. После некоторых изменений мы можем использовать данный файл в качестве инвентарного.
+В [файле](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab3/files/netbox_inventory%20copy.yml) теперь находится информация об устройствах в YAML-формате. После некоторых изменений мы можем использовать данный файл в качестве инвентарного.
 
 
 ### 4. Сценарий, при котором на основе данных из Netbox можно настроить 2 CHR, изменить имя устройства, добавить IP адрес на устройство.
