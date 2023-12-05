@@ -161,10 +161,16 @@ python3 manage.py runserver 0.0.0.0:8000 --insecure
 ![image_2023-12-05_20-59-15](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/c86aa322-0668-44e5-8aea-5947d9dda7c7)
 
 
-### 2. Заполнение всю возможную информацию о CHR в Netbox.
+### 2. Заполнение информации о CHR в Netbox.
+Создаём сайт, мануфактуру и роль. Создаём 2 роутера. Для добавления ip-адресов была добавлен интерфейс для роутеров(во вкладке devices), позже ip адресам были предоставлены интерфейсы, после роутерам ip.
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/24e5423c-b8f5-4069-98c4-9630c58b011f)
 
+### 3. Сбор данных из Netbox используя Ansible.
+Установим ansible-модули для Netbox:
+```
+ansible-galaxy collection install netbox.netbox
+```
 
-### 3. Используя Ansible и роли для Netbox в тестовом режиме сохраним все данные из Netbox в отдельный файл.
 
 
 ### 4. Написать сценарий, при котором на основе данных из Netbox можно настроить 2 CHR, изменить имя устройства, добавить IP адрес на устройство.
