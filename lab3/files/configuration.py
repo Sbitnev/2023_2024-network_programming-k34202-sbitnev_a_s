@@ -16,7 +16,7 @@ DATABASE = {
     'ENGINE': 'django.db.backends.postgresql',  # Database engine
     'NAME': 'netbox',         # Database name
     'USER': 'netbox',         # PostgreSQL username
-    'PASSWORD': '12345',      # PostgreSQL password
+    'PASSWORD': 'admin',      # PostgreSQL password
     'HOST': 'localhost',      # Database server
     'PORT': '',               # Database port (leave blank for default)
     'CONN_MAX_AGE': 300,      # Max database connection age
