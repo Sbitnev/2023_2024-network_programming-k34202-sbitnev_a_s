@@ -267,7 +267,7 @@ ansible-playbook -i inventory serial_number-playbook.yml
 
 
 ## **Результаты лабораторной работы:**
-[Файл данных из Netbox.](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/files/netbox_inventory%20copy.yml)
+[Файл данных из Netbox.]([https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/files/netbox_inventory%20copy.yml](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab3/files/netbox_inventory%20copy.yml))
 
 2 файла сценариев:
 1. [Playbook_ip](files/ansible-playbook.yml) + [inventory-файл](files/inventory/netbox_inventory.yml)
