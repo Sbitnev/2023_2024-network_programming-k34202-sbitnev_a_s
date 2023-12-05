@@ -171,16 +171,34 @@ python3 manage.py runserver 0.0.0.0:8000 --insecure
 ansible-galaxy collection install netbox.netbox
 ```
 
+Создадим файл [netbox_conf_galaxy.yml](lab3/files/netbox_conf_galaxy.yml):
+```
+plugin: netbox.netbox.nb_inventory
+api_endpoint: http://127.0.0.1:8000
+token: 1ef9042ee515f716bdad25fe37e4ed531d38c097
+validate_certs: True
+config_context: False
+interfaces: True
+```
+
+Токен можно в http://*Публичный_IP_сервера*:8000/user/api-tokens/:
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/8a93de7c-5d35-4f47-b760-9579ac04dc66)
+
+Сохраняем вывод скрипта в файл командой:
+```
+ansible-inventory -v --list -y -i netbox_conf_galaxy.yml > netbox_inventory.yml
+```
+В [файле](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab3/files/netbox_inventory%20copy.yml) теперь находится информация об устройствах в YAML-формате. После некоторых изменений мы можем использовать данный файл в качестве инвентарного.
 
 
-### 4. Написать сценарий, при котором на основе данных из Netbox можно настроить 2 CHR, изменить имя устройства, добавить IP адрес на устройство.
+### 4. Сценарий, при котором на основе данных из Netbox можно настроить 2 CHR, изменить имя устройства, добавить IP адрес на устройство.
 
 
-### 5. Написать сценарий, позволяющий собрать серийный номер устройства и вносящий серийный номер в Netbox.
+### 5. Сценарий, позволяющий собрать серийный номер устройства и вносящий серийный номер в Netbox.
 
 
 ## **Результаты лабораторной работы:**
-Файл данных из Netbox.
+[Файл данных из Netbox.](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab3/files/netbox_inventory%20copy.yml)
 
 2 файла сценариев.
 
