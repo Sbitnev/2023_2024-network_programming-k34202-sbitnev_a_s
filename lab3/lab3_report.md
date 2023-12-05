@@ -21,6 +21,79 @@
 ### 1. Поднятие Netbox.
 Netbox будет подниматься на том же сервере, где установлен OpenVPN и Ansible. В ином случае не получится подключить 2 роутера и NetBox сервер к нашему VPN одновременно, так как в бесплатной версии OpenVPN AS поддерживается 2 одновременных подключения.
 
+Воспользуемся [оригинальной инструкцией](https://docs.netbox.dev/en/stable/installation/) для установки NetBox.
+
+Для корректной работы NetBox понадобится следующее ПО:
+* Python от 3.8
+* PostgreSQL от 12
+* Redis от 4.0
+
+#### Установка PostgreSQL Database
+```
+sudo apt update
+sudo apt install -y postgresql
+```
+
+#### Установка Redis
+```
+sudo apt install -y redis-server
+```
+
+Проверка статуса:
+```
+redis-cli ping
+```
+
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/7a0c187f-1f18-4a13-b4d7-57795c48166a)
+
+#### Установка Python
+```
+sudo apt install -y python3 python3-pip python3-venv python3-dev build-essential libxml2-dev libxslt1-dev libffi-dev libpq-dev libssl-dev zlib1g-dev
+```
+
+
+#### Проверка версий ПО
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/ec57564b-a59a-40f5-9db1-fc7a8926db50)
+
+#### Создание базы данных
+```
+sudo -u postgres psql
+```
+
+В оболочке введием следующие команды для создания базы данных и пользователя (роли):
+```
+CREATE DATABASE netbox;
+CREATE USER netbox WITH PASSWORD '12345';
+ALTER DATABASE netbox OWNER TO netbox;
+-- the next two commands are needed on PostgreSQL 15 and later
+\connect netbox;
+GRANT CREATE ON SCHEMA public TO netbox;
+```
+
+Проверим статус:
+```
+psql --username netbox --password --host localhost netbox
+```
+
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/fa2d4a4f-2adc-443f-a477-0329b6c80fbd)
+
+#### Установка Netbox
+Скачаем git:
+```
+sudo apt install -y git
+```
+
+Склонируем репозиторий с NetBox:
+```
+sudo mkdir -p /opt/netbox/
+cd /opt/netbox/
+sudo git clone -b master --depth 1 https://github.com/netbox-community/netbox.git .
+```
+
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/d28e78fb-b5fe-4497-97e3-8208a1ad4af8)
+
+
+
 ### 2. Заполнение всю возможную информацию о CHR в Netbox.
 
 
