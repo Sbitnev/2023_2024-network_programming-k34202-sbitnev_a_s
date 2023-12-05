@@ -192,19 +192,93 @@ ansible-inventory -v --list -y -i netbox_conf_galaxy.yml > netbox_inventory.yml
 
 
 ### 4. Сценарий, при котором на основе данных из Netbox можно настроить 2 CHR, изменить имя устройства, добавить IP адрес на устройство.
+Для начара отредактируем [inventory-файл](lab3/files/inventory/netbox_inventory.yml). Перенесём переменные для подключения к роутерам:
+```
+  vars:
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_network_os: community.routeros.routeros
+    ansible_user: admin
+    ansible_ssh_pass: 12345
+```
+
+Напишем [playbook](lab3/files/ansible-playbook.yml) для изменения имени устройства и добавления IP:
+```
+- name: Setup Routers
+  hosts: ungrouped
+  tasks:
+    - name: "Change names of devicies"
+      community.routeros.command:
+        commands:
+          - /system identity set name="{{ interfaces[0].device.name }}"
+
+    - name: "Change IP-address"
+      community.routeros.command:
+        commands:
+          - /ip address add address="{{ interfaces[0].ip_addresses[0].address }}" interface="{{ interfaces[0].display }}"
+```
+
+Запустим playbook:
+```
+ansible-playbook -i inventory ansible-playbook.yml
+```
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/634bb921-fbdd-4ed1-915a-124bf2fcd5a2)
+
+
+Ip и имена изменились:
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/9f27e228-da73-4fe2-b847-836f8d345195)
 
 
 ### 5. Сценарий, позволяющий собрать серийный номер устройства и вносящий серийный номер в Netbox.
+```
+- name: Get Serial Numbers
+  hosts: ungrouped
+  tasks:
+
+    - name: "Get Serial Number"
+      community.routeros.command:
+        commands:
+          - /system license print
+      register: license
+
+    - name: "Get Name"
+      community.routeros.command:
+        commands:
+          - /system identity print
+      register: identity
+
+    - name: Add Serial Number to Netbox
+      netbox_device:
+        netbox_url: http://127.0.0.1:8000
+        netbox_token: 1ef9042ee515f716bdad25fe37e4ed531d38c097
+        data:
+          name: "{{ identity.stdout_lines[0][0].split()[1] }}"
+          serial: "{{ license.stdout_lines[0][0].split()[1] }}"
+```
+
+Выплним [сценарий](lab3/files/serial_number-playbook.yml):
+```
+ansible-playbook -i inventory serial_number-playbook.yml
+```
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/2f2bc5b0-a25c-4993-b3b2-bf2b430a5f4f)
+
+Добавленные серийные номера:
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/23b70540-2986-436f-93b2-eebb8ef609e8)
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/b83f353d-74ff-4278-bd0c-4b8d7c60fb09)
 
 
 ## **Результаты лабораторной работы:**
 [Файл данных из Netbox.](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab3/files/netbox_inventory%20copy.yml)
 
-2 файла сценариев.
+2 файла сценариев:
+1. [Playbook_ip](lab3/files/ansible-playbook.yml) + [inventory-файл](lab3/files/inventory/netbox_inventory.yml)
+2. [Playbook_serial_number](lab3/files/serial_number-playbook.yml)
 
 Схема связи.
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/dd5ab4ce-e4fa-4e8c-8964-53e4c85d193b)
+
 
 Результаты пингов, проверки локальной связности.
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/72394fd8-6de9-4ec8-b1a2-3f937d6612b5)
 
 
 ## **Вывод:** 
