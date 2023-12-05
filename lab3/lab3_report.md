@@ -44,7 +44,8 @@ sudo apt install -y redis-server
 redis-cli ping
 ```
 
-![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/7a0c187f-1f18-4a13-b4d7-57795c48166a)
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/b9965225-d4c9-44bf-b64f-7b2f2ab84aca)
+
 
 #### Установка Python
 ```
@@ -53,7 +54,7 @@ sudo apt install -y python3 python3-pip python3-venv python3-dev build-essential
 
 
 #### Проверка версий ПО
-![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/ec57564b-a59a-40f5-9db1-fc7a8926db50)
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/c3af2ff9-5250-417f-8d81-ad547167c528)
 
 #### Создание базы данных
 ```
@@ -69,6 +70,9 @@ ALTER DATABASE netbox OWNER TO netbox;
 \connect netbox;
 GRANT CREATE ON SCHEMA public TO netbox;
 ```
+
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/30415ced-1bde-4c8e-802f-a695b61e991d)
+
 
 Проверим статус:
 ```
