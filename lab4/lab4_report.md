@@ -20,7 +20,38 @@
 ## **Ход работы:**
 
 ### 1. Подготвка к выполнению работы.
+#### Склонировать репозиторий p4lang/tutorials
+```
+sudo git clone https://github.com/p4lang/tutorials
+```
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/493bca2f-8d88-472b-ada9-06bf9127a69e)
 
+
+
+#### Установить Vagrant и VirtualBox
+Установим VirtualBox:
+```
+sudo apt update
+sudo apt install virtualbox
+```
+
+Установим Vagrant (Для этого нужно подключится к vpn):
+```
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install vagrant
+```
+
+Проверим версию:
+
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/11861b85-9aa1-426e-9446-9bdff7876967)
+
+
+#### Перейти в папку cd vm-ubuntu-20.04
+
+#### Используя Vagrant развернуть тестовую среду vagrant up
+
+#### В результате установки у вас появится виртуальная машина с аккаунтами login/password vagrant/vagrant и p4/p4
 
 ### 2. Implementing Basic Forwarding.
 
