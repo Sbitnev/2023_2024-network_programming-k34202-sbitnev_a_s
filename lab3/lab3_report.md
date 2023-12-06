@@ -64,7 +64,7 @@ sudo -u postgres psql
 В оболочке введием следующие команды для создания базы данных и пользователя (роли):
 ```
 CREATE DATABASE netbox;
-CREATE USER netbox WITH PASSWORD '12345';
+CREATE USER netbox WITH PASSWORD 'admin';
 ALTER DATABASE netbox OWNER TO netbox;
 -- the next two commands are needed on PostgreSQL 15 and later
 \connect netbox;
