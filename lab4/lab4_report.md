@@ -332,17 +332,21 @@ Implementing Basic Tunneling: [basic_tunnel.p4](https://github.com/Sbitnev/2023_
 
 Схема связи.
 Implementing Basic Forwarding:
+
 ![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/77b5b629-a942-4d22-bd82-fd448b03d1e1)
 
 Implementing Basic Tunneling:
+
 ![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/187d8d97-8204-4cf5-8239-6c73ac4cd3df)
 
 Результаты пингов, проверки локальной связности.
 Implementing Basic Forwarding:
+
 ![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/d8a7c5a4-5e82-4240-8fb5-7c97b64eaae0)
 
 
 Implementing Basic Tunneling:
+
 ![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/6c39afb2-d5ed-4fba-9c0a-a1efb436ac2b)
 
 
