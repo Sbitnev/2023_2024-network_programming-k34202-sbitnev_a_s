@@ -50,13 +50,13 @@ sudo git clone https://github.com/p4lang/tutorials
 
 
 ### 2. Implementing Basic Forwarding.
+В данном упражнении нужно дополнить скрипт basic.p4 так, чтобы в сети заработала переадресация IP-пакетов.
 
-#### Шаг 1. Запустим (неполный) код.
 Схема связи сохдаваемой сети:
 
 ![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/ede21804-e7e5-45d4-b977-771f01d57815)
 
-
+#### Шаг 1. Запустим (неполный) код.
 Заходим в созданную виртуальную машину под учетной записью p4/p4. Переходим в каталог tutorials/exercices/basic. Поднимаем виртуальную сеть Mininet и компилируем basic.p4 командой:
 
 ```
@@ -172,7 +172,125 @@ make run
 
 
 ### 3. Implementing Basic Tunneling.
+В этом упражнении нужно реализовать туннелирование. Должна получиться такая сеть:
 
+![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/96d028ae-e6ee-4187-aa9c-9f825e5695c6)
+
+#### Шаг 1: Реализация базового туннелирования
+Нужно дополнить скрипт, добавив в него новый заголовок, таблицу, несколько проверок на валидность, а также дополнить парсер/депарсер, чтобы они обрабатывали дополнительный заголовок.
+
+Перейдем в репозитроий basic_tunnel
+
+Файл basic_tunnel.p4 содержит реализацию базового IP-маршрутизатора. Он также содержит комментарии, помеченные как TODO, которые указывают на функциональность, которую вам нужно реализовать. Полная реализация коммутатора basic_tunnel.p4 сможет пересылать пакеты на основе содержимого пользовательского заголовка инкапсуляции, а также выполнять обычную IP-пересылку, если заголовок инкапсуляции отсутствует в пакете.
+
+```
+// TODO: Update the parser to parse the myTunnel header as well
+parser MyParser(packet_in packet,
+                out headers hdr,
+                inout metadata meta,
+                inout standard_metadata_t standard_metadata) {
+
+    state start {
+        transition parse_ethernet;
+    }
+
+    state parse_ethernet {
+        packet.extract(hdr.ethernet);
+        transition select(hdr.ethernet.etherType) {
+            TYPE_MYTUNNEL: parse_myTunnel;
+            TYPE_IPV4: parse_ipv4;
+            default: accept;
+        }
+    }
+
+    state parse_myTunnel {
+        packet.extract(hdr.myTunnel);
+        transition select(hdr.myTunnel.proto_id) {
+            TYPE_IPV4: parse_ipv4;
+            default: accept;
+        }
+    }
+
+    state parse_ipv4 {
+        packet.extract(hdr.ipv4);
+        transition accept;
+    }
+
+}
+```
+
+
+```
+control MyIngress(inout headers hdr,
+                  inout metadata meta,
+                  inout standard_metadata_t standard_metadata) {
+    action drop() {
+        mark_to_drop(standard_metadata);
+    }
+
+    action ipv4_forward(macAddr_t dstAddr, egressSpec_t port) {
+        standard_metadata.egress_spec = port;
+        hdr.ethernet.srcAddr = hdr.ethernet.dstAddr;
+        hdr.ethernet.dstAddr = dstAddr;
+        hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
+    }
+
+    table ipv4_lpm {
+        key = {
+            hdr.ipv4.dstAddr: lpm;
+        }
+        actions = {
+            ipv4_forward;
+            drop;
+            NoAction;
+        }
+        size = 1024;
+        default_action = drop();
+    }
+
+    // TODO: declare a new action: myTunnel_forward(egressSpec_t port)
+    action myTunnel_forward(egressSpec_t port) {
+        standard_metadata.egress_spec = port;
+    }
+
+    // TODO: declare a new table: myTunnel_exact
+    // TODO: also remember to add table entries!
+    table myTunnel_exact {
+        key = {
+            hdr.myTunnel.dst_id: exact;
+        }
+        actions = {
+            myTunnel_forward;
+            drop;
+        }
+        size = 1024;
+        default_action = drop();
+    }
+
+    apply {
+        // TODO: Update control flow
+        if (hdr.ipv4.isValid() && !hdr.myTunnel.isValid()) {
+            ipv4_lpm.apply();
+        }
+
+        if (hdr.myTunnel.isValid()) {
+            myTunnel_exact.apply();
+        }
+    }
+}
+```
+
+
+```
+control MyDeparser(packet_out packet, in headers hdr) {
+    apply {
+        packet.emit(hdr.ethernet);
+        // TODO: emit myTunnel header as well
+        packet.emit(hdr.myTunnel); // Заголовок туннеля
+        packet.emit(hdr.ipv4);
+    }
+}
+```
 
 ## **Результаты лабораторной работы:**
 2 файла с исправленным программным кодом с расширением .p4.
