@@ -308,19 +308,23 @@ control MyDeparser(packet_out packet, in headers hdr) {
 ```
 xterm h1 h2
 ```
+
 ![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/2348b788-dd76-4cf0-876b-e39d87d7e4f7)
 
 
 Сначала мы протестируем без туннелирования. В xterm h1 отправим сообщение на h2:
+
 ![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/813eb433-ec4d-409d-aeb1-1640c828409f)
 
 Пакет должен быть получен на h2. Если вы изучите полученный пакет, вы увидите, что он состоит из заголовка Ethernet, заголовка IP, заголовка TCP и сообщения. Если вы измените IP-адрес назначения (например, попробуйте отправить на 10.0.3.3), то сообщение не будет получено h2, а вместо этого будет получено h3.
 
 Теперь мы протестируем с туннелированием. 
+
 ![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/03cd8ab4-aaf4-4648-b881-100053a0bcb3)
 
 
 В xterm h1 отправим сообщение:
+
 ![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/62379132-28c4-4b1a-95cb-dcb9fe437575)
 
 Пакет должен быть получен на h2, даже если этот IP-адрес является адресом h3. Это происходит потому, что коммутатор больше не использует IP-заголовок для маршрутизации, когда в пакете присутствует заголовок MyTunnel.
