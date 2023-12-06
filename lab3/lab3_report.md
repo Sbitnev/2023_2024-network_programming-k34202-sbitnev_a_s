@@ -274,10 +274,12 @@ ansible-playbook -i inventory serial_number-playbook.yml
 2. [Playbook_serial_number](files/serial_number-playbook.yml)
 
 Схема связи.
+
 ![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/dd5ab4ce-e4fa-4e8c-8964-53e4c85d193b)
 
 
 Результаты пингов, проверки локальной связности.
+
 ![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/72394fd8-6de9-4ec8-b1a2-3f937d6612b5)
 
 
