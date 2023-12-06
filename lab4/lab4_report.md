@@ -167,6 +167,7 @@ make run
 ```
 
 Выполним ping.
+
 ![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/4bc2e677-2da4-4d62-bfb7-1c5841b1dc49)
 
 
