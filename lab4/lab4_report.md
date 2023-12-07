@@ -78,7 +78,7 @@ make stop
 make clean
 ```
 
-#### Шаг 2. Редактирование [basic.p3](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab4/files/basic.p4).
+#### Шаг 2. Редактирование [basic.p4](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab4/files/basic.p4).
 Файл basic.p4 содержит заготовку программы P4, в которой ключевые элементы логики заменены комментариями TODO.
 
 Добавим в парсер парсеры для Ethernet и IPv4, заполняющие поля ethernet_t и ipv4_t.
@@ -158,7 +158,7 @@ control MyDeparser(packet_out packet, in headers hdr) {
 }
 ```
 
-Итоговый файл: [basic.p3](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab4/files/basic.p4).
+Итоговый файл: [basic.p4](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab4/files/basic.p4).
 
 #### Шаг 3. Запуск исправленного кода.
 Аналогично шагу 1 выполним команды:
@@ -333,7 +333,7 @@ xterm h1 h2
 ## **Результаты лабораторной работы:**
 ### 2 файла с исправленным программным кодом с расширением .p4.
 
-* Implementing Basic Forwarding: [basic.p3](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab4/files/basic.p4).
+* Implementing Basic Forwarding: [basic.p4](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab4/files/basic.p4).
 
 * Implementing Basic Tunneling: [basic_tunnel.p4](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/blob/main/lab4/files/basic_tunnel.p4).
 
