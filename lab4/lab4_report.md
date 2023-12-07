@@ -301,6 +301,7 @@ control MyDeparser(packet_out packet, in headers hdr) {
 ![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/4353992d-b555-4c0e-a7dd-f3267f5fda8b)
 
 Проверим связанность:
+
 ![image](https://github.com/Sbitnev/2023_2024-network_programming-k34202-sbitnev_a_s/assets/71010852/0813c926-5e5d-450d-97b2-f2cbe0a9826a)
 
 
